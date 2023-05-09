@@ -167,24 +167,6 @@ pane, and edit any example you find in the essays. A simple edit-and-save should
 cause everything to update.
 
 # Go Pro: Advanced Workflow
-## Start a Repl
-Start a REPL from the command line.
-
-```sh
-bb repl
-```
-
-Then start the server:
-
-```clj
-(user/serve!)
-```
-
-Interact with Emmy. E.g. type
-```clj
-((D sin) 0)
-```
-As a result, the number `1` should appear.
 
 ## Choose an Editor
 
@@ -222,11 +204,25 @@ file's path as argument. The [Book of Clerk](https://book.clerk.vision) has
 [good instructions on how to configure your editor for
 this](https://book.clerk.vision/#editor-integration).
 
+You can try this without any editor support by starting a REPL from the command
+line:
+
+```sh
+bb repl
+```
+
+Then start the server:
+
+```clj
+(user/serve!)
+```
+
 To show a file, pass it to `clerk/show!`:
 
 ```clj
 (clerk/show! "essays/reality/introduction.clj")
 ```
+
 ## License
 
 Copyright © 2022-2023 Sam Ritchie.
