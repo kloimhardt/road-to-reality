@@ -96,10 +96,9 @@ poking around.
 To run the essays, you'll need to complete the following steps:
 
 - Download the essays to your computer
-- Set up your computer to run the essays
-- Choose a programming "text editor" that you'll use to edit the files
-- Run the program that builds the essays....
-- Play!
+- Install program dependencies to your computer
+- Show the essays in your browser by starting the program
+- Edit the essays: Play!
 
 if you get stuck at any point, [write up where you're stuck on this
 form](https://github.com/mentat-collective/road-to-reality/issues/new) and I'll
@@ -129,7 +128,7 @@ The essays live inside of the `essays` folder.
 > choose "Clone a Repository from the Internet". Type the phrase "mentat road",
 > select the first item in the list and click "Clone".
 
-## Dependencies
+## Install Program Dependencies
 
 Install the following dependencies (follow the hyperlinks for install
 instructions):
@@ -149,7 +148,45 @@ Tasks](https://book.babashka.org/#tasks) declared in the `bb.edn` file:
 bb tasks
 ```
 
-## Choosing an Editor
+## Show the Essays
+
+Back at your terminal, run the following command:
+
+```
+bb clerk-watch
+```
+
+Eventually a browser window will appear. If you close the browser window by accident, the link http://localhost:7777 gets you back to the essay view.
+
+## Edit the essays
+
+Now, in any text editor of your choice, open `introduction.clj` and edit any line -- maybe add an exclamation point
+somewhere? -- and save the file. If the browser display updates to the
+introduction essay with your change, you're now in business! Read in the browser
+pane, and edit any example you find in the essays. A simple edit-and-save should
+cause everything to update.
+
+# Go Pro: Advanced Workflow
+## Start a Repl
+Start a REPL from the command line.
+
+```sh
+bb repl
+```
+
+Then start the server:
+
+```clj
+(user/serve!)
+```
+
+Interact with Emmy. E.g. type
+```clj
+((D sin) 0)
+```
+As a result, the number `1` should appear.
+
+## Choose an Editor
 
 The essays are rendered using the [Clerk][clerk-url] notebook system.
 
@@ -172,23 +209,6 @@ Here are links to guides for the most popular editors and Clojure plugins:
 Once you've chosen an editor, open the `road-to-reality` project in the editor
 and navigate to the `essays/reality/introduction.clj` file.
 
-## Editing the Essays
-
-Back at your terminal, run the following command:
-
-```
-bb clerk-watch
-```
-
-Eventually a browser window will appear, pointing to http://localhost:7777. If
-you close the window by accident this link will get you back to the essay view.
-
-Now edit any line in `introduction.clj` -- maybe add an exclamation point
-somewhere? -- and save the file. If the browser display updates to the
-introduction essay with your change, you're now in business! Read in the browser
-pane, and edit any example you find in the essays. A simple edit-and-save should
-cause everything to update.
-
 ## REPL-Based Exploration
 
 Alternatively, instead of `bb clerk-watch` follow your editor's instructions
@@ -202,25 +222,11 @@ file's path as argument. The [Book of Clerk](https://book.clerk.vision) has
 [good instructions on how to configure your editor for
 this](https://book.clerk.vision/#editor-integration).
 
-You can try this without any editor support by starting a REPL from the command
-line:
-
-```sh
-bb repl
-```
-
-Then start the server:
-
-```clj
-(user/serve!)
-```
-
 To show a file, pass it to `clerk/show!`:
 
 ```clj
 (clerk/show! "essays/reality/introduction.clj")
 ```
-
 ## License
 
 Copyright © 2022-2023 Sam Ritchie.
